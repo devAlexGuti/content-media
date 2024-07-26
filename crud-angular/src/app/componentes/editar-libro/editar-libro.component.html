@@ -1,0 +1,30 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Agregar libro
+  </div>
+  <div class="card-body">
+    <form ngNativeValidate [formGroup]="formularioDeLibros" (ngSubmit)="enviarDatos()" >
+      <div class="mb-3">
+        <label for="" class="form-label">ISBN:</label>
+        <input type="text" class="form-control" name="" formControlName="isbn" placeholder="Escribe el ISBN" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" name="" formControlName="name" placeholder="Escribe el nombre del libro" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Stock:</label>
+        <input type="text" class="form-control" name="" formControlName="stock" placeholder="Escribe el stock" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Precio:</label>
+        <input type="text" class="form-control" name="" formControlName="current_price" placeholder="Escribe el precio" required>
+      </div>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="button" class="btn btn-danger" routerLink="/listar-libro">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+

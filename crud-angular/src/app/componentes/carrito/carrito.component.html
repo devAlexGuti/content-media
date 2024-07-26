@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h2>Carrito de Compras</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Libro</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of orderDetails">
+        <td>{{ detail.book.name }}</td>
+        <td>{{ detail.detail_price | currency:'USD':'symbol' }}</td>
+        <td>
+          <input
+            type="number"
+            class="form-control"
+            [value]="detail.quantity"
+            (change)="updateQuantity(detail.book_id, $event.target.value)"
+            min="1"
+          >
+        </td>
+        <td>{{ detail.detail_price * detail.quantity | currency:'USD':'symbol' }}</td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteBook(detail.book_id)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button
+    class="btn btn-success mt-3"
+    (click)="checkout()">
+    Finalizar Compra
+  </button>
+</div>

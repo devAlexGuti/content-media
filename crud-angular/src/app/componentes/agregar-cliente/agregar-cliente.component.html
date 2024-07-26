@@ -1,0 +1,46 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Agregar cliente
+  </div>
+  <div class="card-body">
+    <form ngNativeValidate [formGroup]="formularioDeClientes" (ngSubmit)="enviarDatos()" >
+      <div class="mb-3">
+        <label for="doc_type" class="form-label">Tipo de documento:</label>
+        <select class="form-control" id="doc_type" formControlName="doc_type" required>
+          <option value="" disabled>Selecciona un tipo de documento</option>
+          <option *ngFor="let tipo of tiposDeDocumento" [value]="tipo.value">{{ tipo.label }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Número de documento:</label>
+        <input type="text" class="form-control" id="" formControlName="doc_number" placeholder="Escribe tu correo" required>
+          <div *ngIf="formularioDeClientes.get('doc_number').errors?.maxlength" class="error-message">
+            El número de documento no debe exceder la longitud permitida.
+          </div>
+          <div *ngIf="formularioDeClientes.get('doc_number').errors?.minlength" class="error-message">
+            El número de documento no debe ser menor a la longitud mínima.
+          </div>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Nombres:</label>
+        <input type="text" class="form-control" id="" formControlName="first_name" placeholder="Escribe tus nombres" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Apellidos:</label>
+        <input type="text" class="form-control" id="" formControlName="last_name" placeholder="Escribe tus apellidos" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Celular:</label>
+        <input type="text" class="form-control" id="" formControlName="phone" placeholder="Escribe tu celular" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Correo:</label>
+        <input type="email" class="form-control" id="" formControlName="email" placeholder="Escribe tu correo" required>
+      </div>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="button" class="btn btn-danger" routerLink="/listar-cliente">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

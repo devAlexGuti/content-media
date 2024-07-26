@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header">
+    Editar Cliente
+  </div>
+  <div class="card-body">
+    <!--Activar la validacion nativa -->
+    <form ngNativeValidate [formGroup]="formularioDeClientes" (ngSubmit)="enviarDatos()">
+      <div class="mb-3">
+        <label for="doc_type" class="form-label">Tipo de documento:</label>
+        <select class="form-control" id="doc_type" formControlName="doc_type" required>
+          <option value="" disabled>Selecciona un tipo de documento</option>
+          <option *ngFor="let tipo of tiposDeDocumento" [value]="tipo.value">{{ tipo.label }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Número de documento:</label>
+        <input type="text" class="form-control" id="" formControlName="doc_number" placeholder="Escribe tu correo" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Nombres:</label>
+        <input type="text" class="form-control" id="" formControlName="first_name" placeholder="Escribe tu telefono" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Apellidos:</label>
+        <input type="text" class="form-control" id="" formControlName="last_name" placeholder="Escribe tu telefono" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Celular:</label>
+        <input type="text" class="form-control" id="" formControlName="phone" placeholder="Escribe tu telefono" required>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Correo:</label>
+        <input type="email" class="form-control" id="" formControlName="email" placeholder="Escribe tu telefono" required>
+      </div>
+      <div class="btn-group" role="group" aria-label="">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/listar-cliente">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

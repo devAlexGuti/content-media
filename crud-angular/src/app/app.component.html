@@ -1,0 +1,26 @@
+<style>
+  .btn-danger{
+    background: black;
+    border-radius: 40px;
+  }
+</style>
+<!--<div class="container">-->
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="nav navbar-nav">
+      <a class="navbar-item nav-link active" href="#">Sistema</a>
+        <span class="visually-hidden">(current)</span>
+      <a class="navbar-item nav-link" routerLink="listar-cliente">Listar cliente</a>
+      <!-- <a class="navbar-item nav-link" routerLink="agregar-cliente">Agregar contacto</a> -->
+      <a class="navbar-item nav-link" routerLink="listar-libro">Listar libro</a>
+      <a class="navbar-item nav-link" routerLink="listar-tienda">Tienda de libros</a>
+      <a class="navbar-item nav-link" routerLink="carrito-compra">Carrito de compras</a>
+    </div>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+    <!-- router outlet, viene ser el espacio donde se va a mostrar
+      lo que contiene el componente  -->
+  </div>
+<!--</div>-->
+
+<!-- routerlink, me permite redireccionar a una pagina cuando haga click -->

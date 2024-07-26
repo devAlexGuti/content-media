@@ -1,0 +1,51 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <a class="btn btn-primary" routerLink="/agregar-libro/">Agregar nuevo libro</a>
+  </div>
+  <div class="card-body">
+    <h3>Lista de libros</h3>
+    <table id="" class="table table-bordered table-striped text-center" style="width:100%">
+        <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>ISBN</th>
+              <th>Nombre</th>
+              <th>Stock</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros; let iControl=index">
+                <td>{{ libro.book_id }}</td>
+                <td>{{ libro.isbn }}</td>
+                <td>{{ libro.name }}</td>
+                <td>{{ libro.stock }}</td>
+                <td>{{ libro.current_price }}</td>
+                <td>
+                  <img [src]="getImageUrl(libro.image_book)" alt="Imagen del libro" class="img-thumbnail" style="width: 100px; height: auto;">
+                </td>
+              <td>
+                <a class="btn btn-warning me-3" routerLink="/editar-libro/{{ libro.book_id }}">Editar</a>
+                <a class="btn btn-danger" (click)="borrarRegistro(libro.book_id,iControl)">Borrar</a>
+                <!--empleadoid para que se borre el id y iControl para que borre la fila-->
+              </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+              <th>ID</th>
+              <th>ISBN</th>
+              <th>Nombre</th>
+              <th>Stock</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="container my-4">
+  <h2 class="text-center mb-4">Tienda de Libros</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let tienda of tiendas">
+      <div class="card h-100">
+        <img [src]="getImageUrl(tienda.image_book)" class="card-img-top" alt="{{tienda.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{ tienda.name }}</h5>
+          <p class="card-text">Precio: {{ tienda.current_price | currency:'S/.' }}</p>
+          <p class="card-text">Stock: {{ tienda.stock }}</p>
+          <button class="btn btn-primary" (click)="agregarAlCarrito(tienda)">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tiendas.length === 0" class="alert alert-info text-center mt-4">
+    No hay libros disponibles en la tienda.
+  </div>
+</div>

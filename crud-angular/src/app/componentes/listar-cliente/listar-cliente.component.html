@@ -1,0 +1,52 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <a class="btn btn-primary" routerLink="/agregar-cliente/">Agregar nuevo cliente</a>
+  </div>
+  <div class="card-body">
+    <h3>Lista de clientes</h3>
+    <table id="" class="table table-bordered table-striped text-center" style="width:100%">
+        <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>Tipo de documento</th>
+              <th>Número de documento</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Celular</th>
+              <th>Correo</th>
+              <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes; let iControl=index">
+                <td>{{ cliente.client_id }}</td>
+                <td>{{ getTipoDocumento(cliente.doc_type) }}</td>
+                <td>{{ cliente.doc_number }}</td>
+                <td>{{ cliente.first_name }}</td>
+                <td>{{ cliente.last_name }}</td>
+                <td>{{ cliente.phone }}</td>
+                <td>{{ cliente.email }}</td>
+              <td>
+                <a class="btn btn-warning me-3" routerLink="/editar-cliente/{{ cliente.client_id }}">Editar</a>
+                <a class="btn btn-danger" (click)="borrarRegistro(cliente.client_id,iControl)">Borrar</a>
+                <!--empleadoid para que se borre el id y iControl para que borre la fila-->
+              </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+              <th>ID</th>
+              <th>Tipo de documento</th>
+              <th>Número de documento</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Celular</th>
+              <th>Correo</th>
+              <th>Acciones</th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+
+
